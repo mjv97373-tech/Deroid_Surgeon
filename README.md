@@ -1,110 +1,105 @@
-::: {align="center"}
+<div align="center">
+
 # ⚕️ DROID SURGEON
 
 ### Advanced Android Device Management Suite
 
 **Control · Inspect · Mirror · Diagnose**
 
-A desktop toolkit built with Python and PyQt5, integrating Android Debug
-Bridge (ADB), Fastboot, and scrcpy.
+A desktop toolkit for Android device workflows, built with **Python**, **PyQt5**, **ADB**, **Fastboot**, and **scrcpy**.
 
 [English](#english) · [فارسی](#فارسی) · [Русский](#русский)
 
-**Version:** 1.1.1 · **License:** GNU GPL v3.0
-:::
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
+![PyQt5](https://img.shields.io/badge/GUI-PyQt5-41CD52?logo=qt&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Linux-informational)
+![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)
 
-------------------------------------------------------------------------
+**Version:** `1.1.1`
 
-`<a name="english">`{=html}`</a>`{=html} \## 🇬🇧 English
+</div>
+
+---
+
+## Contents
+
+- [English](#english)
+- [فارسی](#فارسی)
+- [Русский](#русский)
+- [Safety Notice](#safety-notice)
+- [License](#license)
+
+<a id="english"></a>
+
+## 🇬🇧 English
 
 ### Overview
 
-**DROID SURGEON** is a desktop graphical interface for managing and
-inspecting Android devices through established command-line tools. It
-brings common ADB, Fastboot, and scrcpy workflows together in a dark,
-resizable interface.
+**DROID SURGEON** is a desktop graphical interface for managing and inspecting Android devices through established command-line tools. It brings common ADB, Fastboot, and scrcpy workflows together in a dark, resizable interface.
 
-> DROID SURGEON is a front-end for external Android tools, not a
-> replacement for them. Available operations depend on the connected
-> device, Android version, permissions, bootloader state, and installed
-> tool versions.
+> [!NOTE]
+> DROID SURGEON is a front-end for external Android tools, not a replacement for them. Available operations depend on the connected device, Android version, permissions, bootloader state, and installed tool versions.
 
 ### Features
 
--   **Dashboard:** device overview and available battery, storage,
-    memory, thermal, and uptime information.
--   **ADB control:** send hardware-key events and perform tap, swipe,
-    long-press, pinch, and scroll gestures.
--   **Screen mirroring:** launch scrcpy and configure bitrate, frame
-    rate, maximum size, orientation, and supported display options.
--   **Fastboot tools:** access supported bootloader operations.
-    Flashing, erasing, slot changes, and other bootloader actions can
-    permanently affect a device.
--   **Package management:** inspect installed packages and use available
-    package actions.
--   **File browser:** browse supported device paths and perform
-    available file operations.
--   **Process viewer:** inspect running processes and use supported
-    process actions.
--   **Logcat:** view Android system logs in real time.
--   **Network diagnostics:** access the network-related diagnostics
-    provided by the application.
--   **Terminal and reference:** run supported ADB/Fastboot workflows
-    through the interface and consult the built-in quick reference.
--   **Adjustable UI:** change interface scale from 70% to 140%; the
-    setting is saved.
+- **Dashboard** — view available battery, storage, memory, thermal, and uptime information.
+- **ADB control** — send hardware-key events and perform supported tap, swipe, long-press, pinch, and scroll gestures.
+- **Screen mirroring** — launch scrcpy and configure supported bitrate, frame-rate, size, and orientation options.
+- **Fastboot tools** — access supported bootloader operations.
+- **Package management** — inspect installed packages and use available package actions.
+- **Device file browser** — browse supported device paths and perform available file operations.
+- **Process viewer** — inspect running processes and use supported process actions.
+- **Live Logcat** — view Android system logs.
+- **Network diagnostics** — access the network diagnostics provided by the application.
+- **Terminal and quick reference** — access supported ADB/Fastboot workflows and built-in command notes.
+- **Resizable interface** — scale the UI from 70% to 140%; the setting is saved.
 
 ### Requirements
 
-**Host system** - Linux is the primary documented environment; package
-commands below target Debian, Ubuntu, and Kali Linux. - Python 3. -
-PyQt5. - Android platform tools: `adb` and `fastboot`. - `scrcpy` for
-screen mirroring. - A USB cable and an Android device, or an
-appropriately configured Android virtual device, for device operations.
+**Host computer**
+- Linux (Debian, Ubuntu, Kali Linux, and Arch Linux commands are provided below)
+- Python 3
+- PyQt5
+- Android platform tools (`adb` and `fastboot`)
+- `scrcpy` for screen mirroring
 
-**Android device** - Enable **Developer options → USB debugging** for
-ADB operations. - Unlock the device and accept its debugging
-authorization prompt when requested. - Fastboot features require a
-device that supports Fastboot and has been booted into its
-bootloader/fastboot mode. - Some operations require additional device
-permissions or an unlockable bootloader.
+**Android device**
+- USB debugging enabled for ADB operations
+- A data-capable USB cable, or a correctly configured Android virtual device
+- For Fastboot features: a device that supports Fastboot and is booted into its bootloader/Fastboot mode
 
-### Install prerequisites
+### Install dependencies
 
 #### Debian / Ubuntu / Kali Linux
 
-``` bash
+```bash
 sudo apt update
-sudo apt install -y python3 python3-pyqt5 android-tools-adb android-tools-fastboot scrcpy
+sudo apt install -y python3 python3-pyqt5 android-tools-adb android-tools-fastboot scrcpy git
 ```
 
 #### Arch Linux
 
-``` bash
+```bash
 sudo pacman -Syu
-sudo pacman -S python python-pyqt5 android-tools scrcpy
+sudo pacman -S python python-pyqt5 android-tools scrcpy git
 ```
 
-Package names and available versions can vary by distribution. If a
-package is unavailable, consult your distribution's official
-repositories and documentation.
+> Package names and versions can vary between distributions. Use your distribution's official repositories if a package name differs.
 
-### Download the project
+### Get the project
 
-If you have cloned the repository:
+Clone your repository (replace the URL with your actual GitHub repository URL):
 
-``` bash
-git clone <REPOSITORY_URL>
-cd <REPOSITORY_DIRECTORY>
+```bash
+git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>.git
+cd <YOUR-REPOSITORY>
 ```
 
-Replace the placeholders with the actual repository URL and directory
-name. If you downloaded the Python file directly, open a terminal in the
-folder containing `Droid_Surgeon.py`.
+Or download `Droid_Surgeon.py` from the repository and open a terminal in the directory where you saved it.
 
-### Verify the dependencies
+### Verify the tools
 
-``` bash
+```bash
 python3 --version
 python3 -c "import PyQt5; print('PyQt5 OK')"
 adb version
@@ -112,231 +107,183 @@ fastboot --version
 scrcpy --version
 ```
 
-If you only need the GUI and do not plan to use a missing external tool,
-some screens may still open, but the associated functionality will not
-work.
+### Launch
 
-### Run DROID SURGEON
-
-``` bash
+```bash
 python3 Droid_Surgeon.py
 ```
 
-If the application reports a missing executable, install the
-corresponding system package and verify that the command is available in
-your `PATH`.
+If the GUI opens but a feature does not work, confirm that its external command-line tool is installed and available in your `PATH`.
 
 ### Connect an Android device
 
-1.  On the Android device, open **Settings → About phone**.
-2.  Tap **Build number** repeatedly until Developer options are enabled.
-    Menu names vary by manufacturer.
-3.  Open **Developer options** and enable **USB debugging**.
-4.  Connect the device using a data-capable USB cable.
-5.  Accept the RSA debugging authorization prompt on the device.
-6.  Refresh the ADB device list in DROID SURGEON.
+1. On the device, open **Settings → About phone**.
+2. Tap **Build number** repeatedly until Developer options are enabled. The exact menu may vary by manufacturer.
+3. Open **Developer options** and enable **USB debugging**.
+4. Connect the device with a data-capable USB cable.
+5. Unlock the device and accept the USB debugging authorization prompt.
+6. Refresh the ADB device list in DROID SURGEON.
 
-Check the connection from a terminal:
+Check the connection in a terminal:
 
-``` bash
+```bash
 adb devices
 ```
 
-If the device shows `unauthorized`, unlock it and accept the
-authorization prompt. If no device appears, try another USB port or data
-cable and check the operating system's USB permissions.
+If the device appears as `unauthorized`, accept the authorization prompt on the device. If it does not appear, check the cable, USB port, and host USB permissions.
 
-### Start screen mirroring
+### Screen mirroring
 
-1.  Confirm that ADB detects and authorizes the device.
-2.  Open the **MIRROR** tab.
-3.  Choose the desired bitrate, FPS, maximum size, and orientation.
-4.  Press **START**.
+1. Confirm that ADB detects and authorizes the device.
+2. Open the **MIRROR** tab.
+3. Choose the desired supported settings.
+4. Press **START**.
 
-The mirror uses scrcpy installed on the host system. Some options depend
-on the installed scrcpy version.
+Screen mirroring relies on `scrcpy` installed on the host computer. Available options may depend on the installed scrcpy version.
 
 ### Fastboot workflow
 
-Fastboot is a separate device mode; a device visible to ADB is not
-necessarily visible to Fastboot.
+Fastboot requires a compatible device and bootloader mode. A typical transition from Android is:
 
-``` bash
-adb devices
+```bash
 adb reboot bootloader
 fastboot devices
 ```
 
-When finished, use the application's supported reboot action or, where
-appropriate:
+Return to Android using the device's supported reboot option or the appropriate command for that device.
 
-``` bash
-fastboot reboot
-```
+> [!CAUTION]
+> Fastboot flashing, erasing, bootloader unlocking, and slot changes can cause data loss, make a device unbootable, or affect its warranty/security state. Read each command carefully, confirm the target device, and keep a backup. Do not run commands you do not understand.
 
-**Warning:** Do not flash, erase, unlock, or change partitions unless
-you understand the device-specific procedure and have verified the image
-files. These actions may erase data, make the device unbootable, or
-affect its warranty. Never use images intended for a different model or
-variant.
+### Keyboard shortcuts
+
+| Shortcut | Action |
+|---|---|
+| `1`–`9` | Open the corresponding main section |
+| `0` | Open Terminal |
+| `F5` | Refresh ADB and Fastboot device information |
+| `F11` | Toggle fullscreen |
+| `Ctrl` + `+` | Increase UI scale |
+| `Ctrl` + `-` | Decrease UI scale |
+| `Ctrl` + `0` | Reset UI scale |
+| `Ctrl` + `Q` | Quit the application |
 
 ### Troubleshooting
 
-  -----------------------------------------------------------------------
-  Problem                             What to try
-  ----------------------------------- -----------------------------------
-  `adb: command not found`            Install `android-tools-adb` or the
-                                      platform-tools package for your
-                                      distribution.
+**ADB does not detect the device**
 
-  `fastboot: command not found`       Install `android-tools-fastboot` or
-                                      the relevant platform-tools
-                                      package.
-
-  `scrcpy` is missing                 Install scrcpy from your
-                                      distribution's official package
-                                      source.
-
-  Device is `unauthorized`            Unlock the device and accept its
-                                      USB debugging authorization prompt.
-
-  No device is listed                 Check the USB cable, USB mode,
-                                      port, permissions, and debugging
-                                      setting.
-
-  Fastboot list is empty              Reboot into bootloader/fastboot
-                                      mode and check USB access and
-                                      drivers/permissions.
-
-  PyQt5 import fails                  Install the distribution's PyQt5
-                                      package and verify which Python
-                                      interpreter is running the app.
-
-  A scrcpy option fails               Check `scrcpy --help`; supported
-                                      flags differ between versions.
-  -----------------------------------------------------------------------
-
-Restart ADB if needed:
-
-``` bash
+```bash
 adb kill-server
 adb start-server
 adb devices
 ```
 
-### Safety and responsible use
+Unlock the phone and accept the USB debugging authorization prompt. Also check your cable and host USB permissions.
 
--   Use the software only with devices you own or are explicitly
-    authorized to manage.
--   Review the target device and selected operation before making
-    changes.
--   Back up important data before package removal, file changes,
-    flashing, erasing, or bootloader operations.
--   Treat Logcat and device files as potentially sensitive; avoid
-    publishing logs containing personal information, tokens, or
-    identifiers.
--   USB debugging grants powerful access. Disable it when you no longer
-    need it, especially on shared or untrusted computers.
--   The project is provided **without warranty**. The author is not
-    responsible for data loss, device damage, or misuse.
+**The mirror feature does not start**
 
-### License
+```bash
+scrcpy --version
+```
 
-DROID SURGEON declares **GNU General Public License v3.0 (GPL-3.0)**.
-See the repository's `LICENSE` file for the complete license text. If
-redistributing the project, include the license and comply with its
-terms.
+Install `scrcpy` using your distribution's package manager, then try again.
 
-------------------------------------------------------------------------
+**Fastboot does not detect the device**
 
-`<a name="فارسی">`{=html}`</a>`{=html} \## 🇮🇷 فارسی
+```bash
+fastboot --version
+fastboot devices
+```
+
+Confirm that the device supports Fastboot and is actually in bootloader/Fastboot mode.
+
+**PyQt5 import error**
+
+```bash
+python3 -c "import PyQt5"
+```
+
+Install the `python3-pyqt5` package (Debian-based systems) or `python-pyqt5` (Arch Linux).
+
+### Disclaimer
+
+DROID SURGEON is provided for legitimate device administration, development, and testing. You are responsible for actions performed on connected devices. Always obtain authorization before accessing or modifying a device, and back up important data before performing operations that may change it.
+
+---
+
+<a id="فارسی"></a>
+
+## 🇮🇷 فارسی
 
 ### معرفی
 
-**DROID SURGEON** یک ابزار گرافیکی دسکتاپ برای مدیریت و بررسی دستگاه‌های
-اندرویدی است. این برنامه با Python و PyQt5 ساخته شده و قابلیت‌های
-ابزارهای ADB، Fastboot و scrcpy را در یک رابط تیره و قابل تنظیم گرد هم
-می‌آورد.
+**DROID SURGEON** یک رابط گرافیکی دسکتاپ برای مدیریت و بررسی دستگاه‌های اندرویدی است. این برنامه ابزارهای رایج **ADB**، **Fastboot** و **scrcpy** را در یک محیط تیره و قابل تغییر اندازه کنار هم قرار می‌دهد.
 
-> این برنامه یک رابط گرافیکی برای ابزارهای خارجی اندروید است، نه جایگزین
-> آن‌ها. قابلیت‌های قابل استفاده به مدل دستگاه، نسخه اندروید، سطح دسترسی،
-> وضعیت بوت‌لودر و نسخه ابزارهای نصب‌شده بستگی دارد.
+> [!NOTE]
+> این برنامه جایگزین ADB، Fastboot یا scrcpy نیست؛ بلکه رابطی برای استفاده از آن‌هاست. امکانات قابل استفاده به مدل دستگاه، نسخه اندروید، سطح دسترسی، وضعیت بوت‌لودر و نسخه ابزارهای نصب‌شده بستگی دارد.
 
-### امکانات
+### قابلیت‌ها
 
--   **داشبورد دستگاه:** نمایش اطلاعات قابل دسترس باتری، حافظه، فضای
-    ذخیره‌سازی، دما و مدت روشن‌بودن دستگاه.
--   **کنترل ADB:** ارسال کلیدهای سخت‌افزاری و اجرای ژست‌هایی مانند لمس،
-    کشیدن، لمس طولانی، pinch و اسکرول.
--   **نمایش زنده صفحه:** اجرای scrcpy و تنظیم نرخ بیت، FPS، اندازه
-    تصویر، جهت صفحه و گزینه‌های پشتیبانی‌شده.
--   **ابزارهای Fastboot:** دسترسی به عملیات پشتیبانی‌شده در حالت بوت‌لودر؛
-    بعضی عملیات ممکن است اطلاعات را پاک یا دستگاه را غیرقابل بوت کنند.
--   **مدیریت بسته‌ها:** مشاهده بسته‌های نصب‌شده و استفاده از عملیات موجود
-    برای آن‌ها.
--   **مدیریت فایل‌ها:** مرور مسیرهای قابل دسترس دستگاه و انجام عملیات
-    پشتیبانی‌شده.
--   **مشاهده فرایندها:** بررسی فرایندهای در حال اجرا و استفاده از عملیات
-    موجود.
--   **Logcat:** مشاهده زنده گزارش‌های سیستم اندروید.
--   **عیب‌یابی شبکه:** دسترسی به قابلیت‌های تشخیصی شبکه‌ای که برنامه ارائه
-    می‌دهد.
--   **ترمینال و راهنما:** اجرای گردش‌کارهای پشتیبانی‌شده ADB/Fastboot و
-    استفاده از راهنمای داخلی.
--   **تنظیم اندازه رابط:** تغییر مقیاس رابط از ۷۰ تا ۱۴۰ درصد و ذخیره
-    تنظیمات.
+- **داشبورد:** نمایش اطلاعات در دسترس باتری، حافظه، فضای ذخیره‌سازی، دما و زمان روشن‌بودن دستگاه.
+- **کنترل ADB:** ارسال رویدادهای کلیدهای سخت‌افزاری و اجرای ژست‌های پشتیبانی‌شده مانند لمس، کشیدن، نگه‌داشتن، pinch و پیمایش.
+- **نمایش زنده صفحه:** اجرای scrcpy و تنظیم گزینه‌های پشتیبانی‌شده مانند نرخ فریم، بیت‌ریت، اندازه و جهت تصویر.
+- **ابزارهای Fastboot:** دسترسی به عملیات پشتیبانی‌شده در حالت بوت‌لودر.
+- **مدیریت بسته‌ها:** مشاهده برنامه‌های نصب‌شده و استفاده از عملیات موجود.
+- **مرورگر فایل دستگاه:** مرور مسیرهای پشتیبانی‌شده و انجام عملیات فایل در دسترس.
+- **نمایش فرایندها:** مشاهده فرایندهای در حال اجرا و استفاده از عملیات پشتیبانی‌شده.
+- **Logcat زنده:** مشاهده گزارش‌های سیستم اندروید.
+- **عیب‌یابی شبکه:** دسترسی به ابزارهای تشخیصی شبکه موجود در برنامه.
+- **ترمینال و راهنمای دستورات:** دسترسی به گردش‌کارهای پشتیبانی‌شده ADB/Fastboot و راهنمای داخلی.
+- **تنظیم اندازه رابط:** تغییر مقیاس رابط از ۷۰٪ تا ۱۴۰٪ و ذخیره تنظیم.
 
 ### پیش‌نیازها
 
--   سیستم Linux؛ دستورات زیر برای Debian، Ubuntu و Kali Linux نوشته
-    شده‌اند.
--   Python 3 و کتابخانه PyQt5.
--   ابزارهای Android Platform Tools شامل `adb` و `fastboot`.
--   ابزار `scrcpy` برای نمایش صفحه دستگاه.
--   کابل USB دارای قابلیت انتقال داده یا یک دستگاه مجازی اندروید که
-    به‌درستی پیکربندی شده باشد.
+**رایانه میزبان**
+- لینوکس؛ دستورهای نصب برای Debian، Ubuntu، Kali Linux و Arch Linux در ادامه آمده‌اند.
+- Python 3
+- PyQt5
+- ابزارهای Android Platform Tools شامل `adb` و `fastboot`
+- ابزار `scrcpy` برای نمایش زنده صفحه
 
-برای عملیات ADB، گزینه **USB debugging** را از بخش Developer options
-فعال کنید. برای عملیات Fastboot نیز دستگاه باید از این حالت پشتیبانی کند
-و در حالت بوت‌لودر/Fastboot قرار گرفته باشد.
+**دستگاه اندرویدی**
+- فعال‌بودن USB debugging برای عملیات ADB
+- کابل USB دارای قابلیت انتقال داده یا ماشین مجازی اندروید با پیکربندی مناسب
+- برای Fastboot، دستگاه باید از این حالت پشتیبانی کند و در حالت بوت‌لودر/Fastboot قرار داشته باشد.
 
 ### نصب پیش‌نیازها
 
 #### Debian / Ubuntu / Kali Linux
 
-``` bash
+```bash
 sudo apt update
-sudo apt install -y python3 python3-pyqt5 android-tools-adb android-tools-fastboot scrcpy
+sudo apt install -y python3 python3-pyqt5 android-tools-adb android-tools-fastboot scrcpy git
 ```
 
 #### Arch Linux
 
-``` bash
+```bash
 sudo pacman -Syu
-sudo pacman -S python python-pyqt5 android-tools scrcpy
+sudo pacman -S python python-pyqt5 android-tools scrcpy git
 ```
 
-نام بسته‌ها و نسخه‌های موجود ممکن است بسته به توزیع متفاوت باشد. در صورت
-خطا، مخازن رسمی توزیع خود را بررسی کنید.
+> نام و نسخه بسته‌ها ممکن است با توجه به توزیع فرق کند. در صورت تفاوت، مخازن رسمی توزیع خود را بررسی کنید.
 
 ### دریافت پروژه
 
-اگر پروژه در یک مخزن Git قرار دارد:
+نشانی زیر را با آدرس واقعی مخزن GitHub خود جایگزین کنید:
 
-``` bash
-git clone <REPOSITORY_URL>
-cd <REPOSITORY_DIRECTORY>
+```bash
+git clone https://github.com/<نام-کاربری>/<نام-مخزن>.git
+cd <نام-مخزن>
 ```
 
-مقادیر داخل علامت‌های `< >` را با آدرس واقعی مخزن و نام پوشه جایگزین
-کنید. اگر فقط فایل پایتون را دانلود کرده‌اید، ترمینال را در همان پوشه‌ای
-باز کنید که `Droid_Surgeon.py` در آن قرار دارد.
+یا فایل `Droid_Surgeon.py` را از مخزن دریافت کنید و ترمینال را در پوشه‌ای باز کنید که فایل در آن قرار دارد.
 
-### بررسی نصب
+### بررسی نصب ابزارها
 
-``` bash
+```bash
 python3 --version
-python3 -c "import PyQt5; print('PyQt5 نصب است')"
+python3 -c "import PyQt5; print('PyQt5 OK')"
 adb version
 fastboot --version
 scrcpy --version
@@ -344,219 +291,179 @@ scrcpy --version
 
 ### اجرای برنامه
 
-``` bash
+```bash
 python3 Droid_Surgeon.py
 ```
 
-اگر برنامه اعلام کرد یکی از ابزارهای خارجی پیدا نشده است، بسته مربوطه را
-نصب کنید و مطمئن شوید فرمان آن در `PATH` سیستم قابل اجراست.
+اگر رابط برنامه باز می‌شود اما بخشی کار نمی‌کند، بررسی کنید ابزار خط فرمان مربوطه نصب باشد و از طریق `PATH` قابل اجرا باشد.
 
 ### اتصال دستگاه اندرویدی
 
-۱. وارد **Settings → About phone** شوید.
-
-۲. چند بار روی **Build number** بزنید تا Developer options فعال شود.
-
-۳. وارد Developer options شوید و **USB debugging** را فعال کنید.
-
-۴. دستگاه را با کابل USB دارای قابلیت انتقال داده متصل کنید.
-
-۵. در صورت نمایش درخواست مجوز، پیام تأیید RSA را روی دستگاه بپذیرید.
-
-۶. فهرست دستگاه‌ها را در برنامه به‌روزرسانی کنید.
+1. در دستگاه وارد **Settings → About phone** شوید.
+2. چند بار روی **Build number** بزنید تا Developer options فعال شود. نام منوها ممکن است با توجه به سازنده متفاوت باشد.
+3. در Developer options گزینه **USB debugging** را فعال کنید.
+4. دستگاه را با کابل دارای قابلیت انتقال داده متصل کنید.
+5. قفل دستگاه را باز کنید و درخواست مجوز USB debugging را تأیید کنید.
+6. فهرست دستگاه‌های ADB را در DROID SURGEON به‌روزرسانی کنید.
 
 برای بررسی اتصال:
 
-``` bash
+```bash
 adb devices
 ```
 
-اگر وضعیت `unauthorized` نمایش داده شد، دستگاه را باز کنید و مجوز اتصال
-را بپذیرید. اگر دستگاه نمایش داده نشد، کابل، پورت USB، مجوزهای سیستم و
-تنظیمات اشکال‌زدایی را بررسی کنید.
+اگر وضعیت دستگاه `unauthorized` بود، درخواست مجوز را روی خود دستگاه تأیید کنید. اگر دستگاه نمایش داده نشد، کابل، درگاه USB و مجوزهای USB سیستم میزبان را بررسی کنید.
 
-### نمایش صفحه دستگاه
+### نمایش زنده صفحه
 
-۱. ابتدا مطمئن شوید دستگاه از طریق ADB شناسایی شده است.
+1. مطمئن شوید ADB دستگاه را شناسایی کرده و مجوز آن تأیید شده است.
+2. وارد بخش **MIRROR** شوید.
+3. تنظیمات موردنظر را انتخاب کنید.
+4. روی **START** بزنید.
 
-۲. وارد زبانه **MIRROR** شوید.
+این قابلیت به نصب `scrcpy` روی رایانه میزبان نیاز دارد. گزینه‌های موجود ممکن است به نسخه نصب‌شده scrcpy وابسته باشند.
 
-۳. نرخ بیت، FPS، اندازه تصویر و جهت صفحه را تنظیم کنید.
+### گردش‌کار Fastboot
 
-۴. روی **START** بزنید.
+برای استفاده از Fastboot، دستگاه باید سازگار باشد و در حالت بوت‌لودر قرار بگیرد. روش معمول ورود از اندروید:
 
-نمایش صفحه به نصب بودن scrcpy روی سیستم میزبان نیاز دارد. همه گزینه‌ها در
-تمام نسخه‌های scrcpy در دسترس نیستند.
-
-### استفاده از Fastboot
-
-ADB و Fastboot دو حالت متفاوت هستند؛ شناسایی دستگاه در ADB به معنی
-شناسایی آن در Fastboot نیست.
-
-``` bash
-adb devices
+```bash
 adb reboot bootloader
 fastboot devices
 ```
 
-برای خروج از Fastboot، از گزینه ریبوت برنامه یا در صورت مناسب بودن از
-فرمان زیر استفاده کنید:
+برای بازگشت به اندروید از گزینه راه‌اندازی مجدد پشتیبانی‌شده توسط دستگاه یا دستور مناسب همان دستگاه استفاده کنید.
 
-``` bash
-fastboot reboot
-```
+> [!CAUTION]
+> فلش‌کردن، پاک‌کردن پارتیشن‌ها، بازکردن قفل بوت‌لودر و تغییر اسلات می‌توانند باعث از دست رفتن داده‌ها، بالا نیامدن دستگاه یا تغییر وضعیت امنیتی و گارانتی شوند. پیش از هر عملیات دستور را دقیق بخوانید، دستگاه هدف را بررسی کنید و از داده‌های مهم نسخه پشتیبان بگیرید. دستورهایی را که درک نمی‌کنید اجرا نکنید.
 
-**هشدار مهم:** فلش‌کردن، پاک‌کردن پارتیشن‌ها، بازکردن بوت‌لودر و تغییر
-اسلات‌ها می‌توانند اطلاعات را پاک کنند یا دستگاه را از کار بیندازند. قبل
-از هر عملیات، دستورالعمل مخصوص مدل دستگاه و سازگاری فایل‌های ایمیج را
-بررسی کنید.
+### میان‌برهای صفحه‌کلید
 
-### رفع خطاهای رایج
+| میان‌بر | عملکرد |
+|---|---|
+| `1` تا `9` | بازکردن بخش متناظر برنامه |
+| `0` | بازکردن ترمینال |
+| `F5` | به‌روزرسانی اطلاعات دستگاه‌های ADB و Fastboot |
+| `F11` | تغییر حالت تمام‌صفحه |
+| `Ctrl` + `+` | افزایش مقیاس رابط |
+| `Ctrl` + `-` | کاهش مقیاس رابط |
+| `Ctrl` + `0` | بازنشانی مقیاس رابط |
+| `Ctrl` + `Q` | خروج از برنامه |
 
-  -----------------------------------------------------------------------
-  مشکل                                راهکار
-  ----------------------------------- -----------------------------------
-  فرمان `adb` پیدا نمی‌شود             بسته ADB یا Android Platform Tools
-                                      را نصب کنید.
+### عیب‌یابی
 
-  فرمان `fastboot` پیدا نمی‌شود        بسته Fastboot را نصب کنید.
+**ADB دستگاه را شناسایی نمی‌کند**
 
-  scrcpy اجرا نمی‌شود                  نصب scrcpy و سازگاری نسخه آن را
-                                      بررسی کنید.
-
-  دستگاه `unauthorized` است           درخواست مجوز USB debugging را روی
-                                      گوشی تأیید کنید.
-
-  دستگاه نمایش داده نمی‌شود            کابل، پورت، تنظیمات USB و مجوزها را
-                                      بررسی کنید.
-
-  دستگاه در Fastboot نیست             وارد حالت بوت‌لودر/Fastboot شوید و
-                                      اتصال USB را بررسی کنید.
-
-  PyQt5 پیدا نمی‌شود                   نصب بسته PyQt5 و مفسر Python مورد
-                                      استفاده را بررسی کنید.
-  -----------------------------------------------------------------------
-
-برای راه‌اندازی مجدد ADB:
-
-``` bash
+```bash
 adb kill-server
 adb start-server
 adb devices
 ```
 
-### امنیت و استفاده مسئولانه
+قفل گوشی را باز کنید و درخواست مجوز USB debugging را تأیید کنید. کابل و مجوزهای USB سیستم میزبان را هم بررسی کنید.
 
--   فقط روی دستگاه‌هایی کار کنید که مالک آن‌ها هستید یا مجوز صریح
-    مدیریتشان را دارید.
--   قبل از اجرای عملیات، دستگاه هدف و فرمان انتخاب‌شده را بررسی کنید.
--   پیش از حذف بسته‌ها، تغییر فایل‌ها، فلش یا پاک‌کردن اطلاعات، نسخه
-    پشتیبان تهیه کنید.
--   گزارش‌های Logcat و فایل‌های دستگاه ممکن است حاوی اطلاعات خصوصی باشند؛
-    پیش از انتشار آن‌ها اطلاعات حساس را حذف کنید.
--   USB debugging دسترسی قدرتمندی ایجاد می‌کند؛ پس از اتمام کار، به‌ویژه
-    روی رایانه‌های عمومی یا غیرقابل اعتماد، آن را غیرفعال کنید.
--   برنامه بدون ضمانت ارائه می‌شود و نویسنده مسئول خسارت ناشی از
-    ازدست‌رفتن داده‌ها، آسیب دستگاه یا استفاده نادرست نیست.
+**نمایش زنده صفحه اجرا نمی‌شود**
 
-### مجوز
+```bash
+scrcpy --version
+```
 
-مجوز اعلام‌شده برای DROID SURGEON، **GNU GPL نسخه ۳.۰** است. متن کامل
-مجوز باید در فایل `LICENSE` مخزن قرار داشته باشد. هنگام بازتوزیع پروژه،
-شرایط مجوز را رعایت کنید.
+` scrcpy ` را با مدیر بسته توزیع خود نصب کنید و دوباره امتحان کنید.
 
-------------------------------------------------------------------------
+**Fastboot دستگاه را شناسایی نمی‌کند**
 
-`<a name="русский">`{=html}`</a>`{=html} \## 🇷🇺 Русский
+```bash
+fastboot --version
+fastboot devices
+```
 
-### Обзор
+بررسی کنید دستگاه از Fastboot پشتیبانی می‌کند و واقعاً در حالت بوت‌لودر/Fastboot است.
 
-**DROID SURGEON** --- настольное графическое приложение для управления
-Android-устройствами и их диагностики. Оно создано на Python с
-использованием PyQt5 и объединяет рабочие процессы ADB, Fastboot и
-scrcpy в тёмном интерфейсе с настраиваемым масштабом.
+**خطای import برای PyQt5**
 
-> Приложение является графическим интерфейсом для внешних
-> Android-инструментов, а не их заменой. Доступные функции зависят от
-> модели устройства, версии Android, разрешений, состояния загрузчика и
-> версий установленных инструментов.
+```bash
+python3 -c "import PyQt5"
+```
+
+در سیستم‌های مبتنی بر Debian بسته `python3-pyqt5` و در Arch Linux بسته `python-pyqt5` را نصب کنید.
+
+### سلب مسئولیت
+
+DROID SURGEON برای مدیریت مجاز دستگاه، توسعه و آزمایش ارائه شده است. مسئولیت عملیات انجام‌شده روی دستگاه‌های متصل بر عهده کاربر است. پیش از دسترسی یا تغییر هر دستگاه، مجوز لازم را داشته باشید و قبل از عملیات تغییردهنده، از داده‌های مهم پشتیبان تهیه کنید.
+
+---
+
+<a id="русский"></a>
+
+## 🇷🇺 Русский
+
+### О программе
+
+**DROID SURGEON** — настольный графический интерфейс для управления Android-устройствами и их диагностики. Он объединяет распространённые сценарии работы с **ADB**, **Fastboot** и **scrcpy** в тёмном интерфейсе с изменяемым размером.
+
+> [!NOTE]
+> Приложение является графическим интерфейсом для внешних инструментов, а не их заменой. Доступные операции зависят от устройства, версии Android, разрешений, состояния загрузчика и версий установленных утилит.
 
 ### Возможности
 
--   **Панель устройства:** доступная информация о батарее, хранилище,
-    памяти, температуре и времени работы.
--   **Управление через ADB:** отправка аппаратных клавиш и выполнение
-    жестов --- касание, свайп, длительное нажатие, pinch и прокрутка.
--   **Трансляция экрана:** запуск scrcpy и настройка битрейта, FPS,
-    максимального размера, ориентации и поддерживаемых параметров
-    отображения.
--   **Инструменты Fastboot:** доступ к поддерживаемым операциям
-    загрузчика. Некоторые операции могут стереть данные или нарушить
-    загрузку устройства.
--   **Управление пакетами:** просмотр установленных пакетов и доступные
-    операции с ними.
--   **Файловый менеджер:** просмотр доступных путей устройства и
-    поддерживаемые файловые операции.
--   **Просмотр процессов:** анализ запущенных процессов и доступные
-    операции управления.
--   **Logcat:** просмотр системных журналов Android в реальном времени.
--   **Сетевая диагностика:** доступ к сетевым диагностическим функциям
-    приложения.
--   **Терминал и справка:** выполнение поддерживаемых сценариев
-    ADB/Fastboot и встроенная справочная информация.
--   **Масштаб интерфейса:** настройка от 70% до 140% с сохранением
-    параметров.
+- **Панель состояния:** доступные сведения о батарее, хранилище, памяти, температуре и времени работы.
+- **Управление через ADB:** события аппаратных клавиш и поддерживаемые жесты — касание, свайп, длительное нажатие, pinch и прокрутка.
+- **Трансляция экрана:** запуск scrcpy и настройка поддерживаемых параметров битрейта, FPS, размера и ориентации.
+- **Инструменты Fastboot:** доступ к поддерживаемым операциям загрузчика.
+- **Управление пакетами:** просмотр установленных приложений и доступные действия с пакетами.
+- **Файловый браузер:** просмотр поддерживаемых путей устройства и доступные файловые операции.
+- **Просмотр процессов:** сведения о работающих процессах и поддерживаемые действия с ними.
+- **Logcat в реальном времени:** просмотр системных журналов Android.
+- **Сетевая диагностика:** доступ к диагностическим функциям сети, реализованным в приложении.
+- **Терминал и справочник:** поддерживаемые сценарии ADB/Fastboot и встроенные заметки по командам.
+- **Масштабируемый интерфейс:** масштаб от 70% до 140% с сохранением настройки.
 
 ### Требования
 
--   Linux; приведённые команды предназначены для Debian, Ubuntu и Kali
-    Linux.
--   Python 3 и PyQt5.
--   Android Platform Tools: `adb` и `fastboot`.
--   `scrcpy` для трансляции экрана.
--   USB-кабель с передачей данных или корректно настроенное виртуальное
-    Android-устройство.
+**Компьютер**
+- Linux; ниже приведены команды для Debian, Ubuntu, Kali Linux и Arch Linux.
+- Python 3
+- PyQt5
+- Android platform tools (`adb` и `fastboot`)
+- `scrcpy` для трансляции экрана
 
-Для работы через ADB включите **Developer options → USB debugging**. Для
-функций Fastboot устройство должно поддерживать Fastboot и находиться в
-режиме загрузчика/Fastboot.
+**Android-устройство**
+- Включённая USB debugging для операций ADB
+- USB-кабель с передачей данных либо корректно настроенное виртуальное Android-устройство
+- Для Fastboot требуется совместимое устройство, загруженное в режим загрузчика/Fastboot
 
 ### Установка зависимостей
 
 #### Debian / Ubuntu / Kali Linux
 
-``` bash
+```bash
 sudo apt update
-sudo apt install -y python3 python3-pyqt5 android-tools-adb android-tools-fastboot scrcpy
+sudo apt install -y python3 python3-pyqt5 android-tools-adb android-tools-fastboot scrcpy git
 ```
 
 #### Arch Linux
 
-``` bash
+```bash
 sudo pacman -Syu
-sudo pacman -S python python-pyqt5 android-tools scrcpy
+sudo pacman -S python python-pyqt5 android-tools scrcpy git
 ```
 
-Названия пакетов и доступные версии могут различаться в зависимости от
-дистрибутива. При ошибках проверьте официальные репозитории вашей
-системы.
+> Названия пакетов и доступные версии могут отличаться в разных дистрибутивах. При необходимости используйте официальные репозитории своего дистрибутива.
 
 ### Получение проекта
 
-Если проект размещён в Git-репозитории:
+Замените URL ниже на адрес вашего репозитория GitHub:
 
-``` bash
-git clone <REPOSITORY_URL>
-cd <REPOSITORY_DIRECTORY>
+```bash
+git clone https://github.com/<ИМЯ-ПОЛЬЗОВАТЕЛЯ>/<ИМЯ-РЕПОЗИТОРИЯ>.git
+cd <ИМЯ-РЕПОЗИТОРИЯ>
 ```
 
-Замените значения в `< >` реальным URL репозитория и именем каталога.
-Если вы скачали только Python-файл, откройте терминал в каталоге, где
-находится `Droid_Surgeon.py`.
+Также можно скачать `Droid_Surgeon.py` из репозитория и открыть терминал в каталоге с этим файлом.
 
-### Проверка зависимостей
+### Проверка инструментов
 
-``` bash
+```bash
 python3 --version
 python3 -c "import PyQt5; print('PyQt5 OK')"
 adb version
@@ -566,130 +473,112 @@ scrcpy --version
 
 ### Запуск
 
-``` bash
+```bash
 python3 Droid_Surgeon.py
 ```
 
-Если приложение сообщает об отсутствующей внешней программе, установите
-соответствующий системный пакет и убедитесь, что команда доступна через
-`PATH`.
+Если графический интерфейс запускается, но отдельная функция не работает, убедитесь, что соответствующая внешняя утилита установлена и доступна через `PATH`.
 
 ### Подключение Android-устройства
 
-1.  Откройте **Настройки → О телефоне**.
-2.  Несколько раз нажмите **Номер сборки**, чтобы включить параметры
-    разработчика.
-3.  Включите **Отладку по USB** в параметрах разработчика.
-4.  Подключите устройство USB-кабелем с поддержкой передачи данных.
-5.  Разрешите отладку, подтвердив RSA-запрос на устройстве.
-6.  Обновите список ADB-устройств в приложении.
+1. Откройте на устройстве **Settings → About phone**.
+2. Несколько раз нажмите **Build number**, чтобы включить Developer options. Названия меню зависят от производителя.
+3. Включите **USB debugging** в Developer options.
+4. Подключите устройство USB-кабелем с поддержкой передачи данных.
+5. Разблокируйте устройство и подтвердите запрос авторизации USB debugging.
+6. Обновите список устройств ADB в DROID SURGEON.
 
-Проверить подключение можно командой:
+Проверьте подключение в терминале:
 
-``` bash
+```bash
 adb devices
 ```
 
-Если отображается `unauthorized`, разблокируйте устройство и подтвердите
-запрос авторизации. Если устройство не найдено, проверьте кабель,
-USB-порт, разрешения системы и настройки отладки.
+Если устройство отображается как `unauthorized`, подтвердите запрос на самом устройстве. Если устройство не отображается, проверьте кабель, USB-порт и права доступа к USB на компьютере.
 
 ### Трансляция экрана
 
-1.  Убедитесь, что ADB обнаруживает устройство и авторизация
-    подтверждена.
-2.  Откройте вкладку **MIRROR**.
-3.  Настройте битрейт, FPS, максимальный размер и ориентацию.
-4.  Нажмите **START**.
+1. Убедитесь, что ADB обнаруживает устройство и авторизация подтверждена.
+2. Откройте вкладку **MIRROR**.
+3. Выберите нужные поддерживаемые параметры.
+4. Нажмите **START**.
 
-Для трансляции требуется установленный на компьютере scrcpy. Поддержка
-отдельных параметров зависит от версии scrcpy.
+Для трансляции требуется установленный на компьютере `scrcpy`. Доступные параметры зависят от его версии.
 
 ### Работа с Fastboot
 
-ADB и Fastboot --- разные режимы. Наличие устройства в ADB не означает,
-что оно будет обнаружено в Fastboot.
+Для Fastboot требуется совместимое устройство в режиме загрузчика. Типичный переход из Android:
 
-``` bash
-adb devices
+```bash
 adb reboot bootloader
 fastboot devices
 ```
 
-Чтобы выйти из Fastboot, используйте доступную функцию перезагрузки
-приложения или, если это подходит для устройства:
+Для возврата в Android используйте поддерживаемый устройством способ перезагрузки или соответствующую команду.
 
-``` bash
-fastboot reboot
-```
+> [!CAUTION]
+> Прошивка разделов, стирание данных, разблокировка загрузчика и переключение слотов могут привести к потере данных, невозможности загрузки устройства или изменению состояния безопасности и гарантии. Внимательно проверяйте каждую команду и целевое устройство, заранее создавайте резервные копии и не выполняйте непонятные команды.
 
-**Внимание:** прошивка, стирание разделов, разблокировка загрузчика и
-изменение слотов могут привести к потере данных или невозможности
-загрузки устройства. Используйте только образы, предназначенные для
-точной модели и её варианта, и заранее изучите инструкции производителя.
+### Сочетания клавиш
 
-### Решение распространённых проблем
+| Сочетание | Действие |
+|---|---|
+| `1`–`9` | Открыть соответствующий раздел |
+| `0` | Открыть терминал |
+| `F5` | Обновить сведения ADB и Fastboot |
+| `F11` | Переключить полноэкранный режим |
+| `Ctrl` + `+` | Увеличить масштаб интерфейса |
+| `Ctrl` + `-` | Уменьшить масштаб интерфейса |
+| `Ctrl` + `0` | Сбросить масштаб интерфейса |
+| `Ctrl` + `Q` | Закрыть приложение |
 
-  -----------------------------------------------------------------------
-  Проблема                            Что проверить
-  ----------------------------------- -----------------------------------
-  `adb: command not found`            Установите пакет ADB или Android
-                                      Platform Tools.
+### Устранение неполадок
 
-  `fastboot: command not found`       Установите пакет Fastboot.
+**ADB не обнаруживает устройство**
 
-  scrcpy не найден                    Установите scrcpy из официального
-                                      источника пакетов дистрибутива.
-
-  Устройство имеет статус             Подтвердите запрос USB-отладки на
-  `unauthorized`                      устройстве.
-
-  Устройство не отображается          Проверьте кабель, порт, режим USB и
-                                      системные разрешения.
-
-  Устройство отсутствует в Fastboot   Перейдите в режим
-                                      загрузчика/Fastboot и проверьте
-                                      USB-подключение.
-
-  Не импортируется PyQt5              Проверьте установку PyQt5 и
-                                      используемый интерпретатор Python.
-  -----------------------------------------------------------------------
-
-При необходимости перезапустите ADB:
-
-``` bash
+```bash
 adb kill-server
 adb start-server
 adb devices
 ```
 
-### Безопасность и ответственное использование
+Разблокируйте устройство и подтвердите запрос USB debugging. Также проверьте кабель и права доступа к USB.
 
--   Используйте приложение только на собственных устройствах или при
-    наличии явного разрешения владельца.
--   Перед выполнением операции проверяйте целевое устройство и выбранное
-    действие.
--   Создавайте резервные копии перед удалением пакетов, изменением
-    файлов, прошивкой или стиранием данных.
--   Logcat и файлы устройства могут содержать конфиденциальные данные.
-    Удаляйте личную информацию перед публикацией журналов.
--   USB-отладка предоставляет широкие возможности доступа. Отключайте её
-    после завершения работы, особенно на общих или ненадёжных
-    компьютерах.
--   Программа предоставляется **без гарантий**. Автор не несёт
-    ответственности за потерю данных, повреждение устройства или
-    неправильное использование.
+**Не запускается трансляция экрана**
 
-### Лицензия
+```bash
+scrcpy --version
+```
 
-Для DROID SURGEON заявлена лицензия **GNU General Public License v3.0
-(GPL-3.0)**. Полный текст лицензии следует включить в файл `LICENSE`
-репозитория. При распространении проекта соблюдайте условия лицензии.
+Установите `scrcpy` через менеджер пакетов своего дистрибутива и повторите попытку.
 
-------------------------------------------------------------------------
+**Fastboot не обнаруживает устройство**
 
-::: {align="center"}
-**DROID SURGEON · v1.1.1**
+```bash
+fastboot --version
+fastboot devices
+```
 
-*Inspect responsibly. Modify carefully. Always back up first.*
-:::
+Убедитесь, что устройство поддерживает Fastboot и находится в режиме загрузчика/Fastboot.
+
+**Ошибка импорта PyQt5**
+
+```bash
+python3 -c "import PyQt5"
+```
+
+В Debian-подобных системах установите `python3-pyqt5`, а в Arch Linux — `python-pyqt5`.
+
+### Отказ от ответственности
+
+DROID SURGEON предназначен для законного администрирования устройств, разработки и тестирования. Пользователь несёт ответственность за действия, выполняемые на подключённых устройствах. Получайте разрешение перед доступом к устройству или его изменением и создавайте резервные копии важных данных перед потенциально изменяющими операциями.
+
+---
+
+## Safety Notice
+
+Operations that modify partitions, bootloader state, packages, or device files may be destructive. Verify the target device and understand the command before proceeding.
+
+## License
+
+This project is distributed under the **GNU General Public License v3.0**. See [`LICENSE`](LICENSE) for the complete license text.
