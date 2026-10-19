@@ -590,9 +590,9 @@ This project is distributed under the **GNU General Public License v3.0**. See [
 
 | Dashboard | Device Control |
 |:---:|:---:|
-| ![Dashboard](screenshots/dashboard.jpg) | ![Control](screenshots/control.jpg) |
+| ![Dashboard](screenshot/dashboard.jpeg) | ![Control](screenshot/control.jpeg) |
 
 | Screen Mirroring | Package Manager |
 |:---:|:---:|
-| ![Mirror](screenshots/mirror.jpg) | ![Packages](screenshots/packages.jpg) |
+| ![Mirror](screenshot/mirror.jpeg) | ![Packages](screenshot/package.jpeg) |
 
