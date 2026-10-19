@@ -584,22 +584,15 @@ Operations that modify partitions, bootloader state, packages, or device files m
 This project is distributed under the **GNU General Public License v3.0**. See [`LICENSE`](LICENSE) for the complete license text.
 
 
-##  Screenshots
 
-Explore the DROID SURGEON interface.
 
-### Dashboard
-![DROID SURGEON Dashboard](screenshot/dashboard.jpeg)
+##  Interface Preview
 
-### Device Control
-![ADB Device Control](screenshot/control.jpeg)
+| Dashboard | Device Control |
+|:---:|:---:|
+| ![Dashboard](screenshots/dashboard.jpg) | ![Control](screenshots/control.jpg) |
 
-### Screen Mirroring
-![Screen Mirroring Settings](screenshot/mirror.jpeg)
-
-### Package Manager
-![Android Package Manager](screenshot/package.jpeg)
-
-### Built-in License Viewer
-![GPLv3 License Viewer](screenshot/license.jpeg)
+| Screen Mirroring | Package Manager |
+|:---:|:---:|
+| ![Mirror](screenshots/mirror.jpg) | ![Packages](screenshots/packages.jpg) |
 
