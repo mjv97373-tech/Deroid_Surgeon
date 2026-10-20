@@ -31,6 +31,18 @@ A desktop toolkit for Android device workflows, built with **Python**, **PyQt5**
 
 <a id="english"></a>
 
+
+##  Interface Preview
+
+| Dashboard | Device Control |
+|:---:|:---:|
+| ![Dashboard](screenshot/dashboard.jpeg) | ![Control](screenshot/control.jpeg) |
+
+| Screen Mirroring | Package Manager |
+|:---:|:---:|
+| ![Mirror](screenshot/mirror.jpeg) | ![Packages](screenshot/package.jpeg) |
+
+
 ## 🇬🇧 English
 
 ### Overview
@@ -585,14 +597,4 @@ This project is distributed under the **GNU General Public License v3.0**. See [
 
 
 
-
-##  Interface Preview
-
-| Dashboard | Device Control |
-|:---:|:---:|
-| ![Dashboard](screenshot/dashboard.jpeg) | ![Control](screenshot/control.jpeg) |
-
-| Screen Mirroring | Package Manager |
-|:---:|:---:|
-| ![Mirror](screenshot/mirror.jpeg) | ![Packages](screenshot/package.jpeg) |
 
